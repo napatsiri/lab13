@@ -1,24 +1,22 @@
 #include<iostream>
-#include <ctime>
+#include<ctime>
 using namespace std;
 
-int fibonacci(int x);
+long long int fibonacci(long long int x);
 
 int main(){
-    int x;
-    cin >> x;
-    cout << fibonacci(x);
-    return 0; 
+    clock_t start = clock();
+    cout << "Result: " << fibonacci(50) << "\n";
+    clock_t end = clock();
+    double elapsed = double(end - start)/CLOCKS_PER_SEC;
+    cout << "Elapsed Time: " << elapsed << " seconds.";
+    return 0;
 }
 
-int fibonacci(int x){
-    int y;
-    if(x==0)
-    cout << 0;
-    if(x==1)
-    cout << 1;
+long long int fibonacci(long long int x){
+   
     if(x>1)
-    y = fibonacci(x-1) + fibonacci(x-2);
+    x = fibonacci(x-1) + fibonacci(x-2);
     
-    return y;
+    return x;
 }
